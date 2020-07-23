@@ -11,35 +11,17 @@ function reverse(array) {
 
 function rotateArr(array, shiftBy) {
       for(var i = 0; i < shiftBy; i++) {
+            var value = array[array.length-1]
             for (var j = array.length-1; j > 0; j--) {
-                  var temp = array[j]
-                  console.log(temp)
-                  console.log(array[array.length-j-i-1])
-                  array[j] = array[array.length-j-i-1]
-                  array[array.length-j-i-1] = temp
+                  var temp = array [j]
+                  array[j] = array[j-1]
+                  array[j-1] = temp
             }
+            array[0] = value
       }      
       return array
 }
-// NOT FINISHED
-// console.log(rotateArr([1,2,3],1))
-
-function range(array, min, max) {
-      console.log(array.length)
-
-      for (var i=0; i < array.length; i++) {
-            if (array[i] < min) {
-                  var temp = array[i]
-                  array.push(temp).pop()
-            } else if (array[i] > max) {
-                  delete array[i]
-            }
-      }
-      console.log(array.length)
-      return array
-}
-
-console.log(range([1,2,7,2,5,4,6,3], 1, 6))
+// console.log(rotateArr([1,2,3,4,5],2))
 
 function arrConcat(array1, array2) {
       var new_array = []
@@ -53,3 +35,4 @@ function arrConcat(array1, array2) {
 }
 
 // console.log(arrConcat( ['a','b'], [1,2] ))
+
