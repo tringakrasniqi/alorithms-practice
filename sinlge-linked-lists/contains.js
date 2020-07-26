@@ -108,36 +108,27 @@ class SSL {
 
       back() {
             var runner = this.head
-            while(runner) {
-                  if (runner.next == null) {
-                        return runner.value
-                  }
+            while(runner.next) {
                   runner = runner.next
             }
-            return this
+            return runner.value
       }
 
       addBack(value) {
             var runner = this.head
-            while(runner) {
-                  if (runner.next == null) {
-                        runner.next = new Node(value)
-                        return this;
-                  }
+            while(runner.next) {
                   runner = runner.next
             }
+            runner.next = new Node(value)
             return this
       }
 
       removeBack() {
             var runner = this.head
-            while(runner) {
-                  if (runner.next.next == null) {
-                        runner.next = null
-                        return this;
-                  }
+            while(runner.next.next) {
                   runner = runner.next
             }
+            runner.next = null
             return this
       }
 }
@@ -156,7 +147,6 @@ ssl.addFront(10)
 // console.log(ssl.contains(5))
 
 ssl.addBack(20)
-ssl.addBack(25)
 console.log(ssl.back())
 ssl.removeBack()
 console.log(ssl.back())
