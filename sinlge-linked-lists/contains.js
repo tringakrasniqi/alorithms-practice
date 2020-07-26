@@ -48,6 +48,20 @@ class SSL {
             }
             return this
       }
+
+      length() {
+            var runner = this.head
+            var counter = 0
+            while(runner) {
+                  counter ++
+                  if (runner.next == null) {
+                        return counter
+                  }
+                  runner = runner.next
+            }
+            return counter
+      }
+
 }
 
 var ssl = new SSL(2)
@@ -55,9 +69,13 @@ ssl.addFront(5)
 ssl.addFront(6)
 ssl.addFront("Hi")
 ssl.addFront(3)
-console.log(ssl)
+ssl.addFront(10)
 
-console.log(ssl.contains("Hi"))
-console.log(ssl.contains(2))
-console.log(ssl.contains(10))
-console.log(ssl.contains(5))
+// console.log(ssl)
+
+// console.log(ssl.contains("Hi"))
+// console.log(ssl.contains(2))
+// console.log(ssl.contains(10))
+// console.log(ssl.contains(5))
+
+console.log(ssl.length())
