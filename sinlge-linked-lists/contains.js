@@ -60,7 +60,16 @@ class SSL {
       }
 
       display() {
-
+            var runner = this.head
+            var string = "" 
+            var counter = 0
+            while (runner) {
+                  string += " Node counter: " + counter + " value: " + runner.value + " -> "
+                  counter++
+                  runner = runner.next
+            }
+            console.log(string)
+            return this
       }
 
 }
@@ -80,3 +89,5 @@ ssl.addFront(10)
 // console.log(ssl.contains(5))
 
 console.log(ssl.length())
+
+ssl.display()
