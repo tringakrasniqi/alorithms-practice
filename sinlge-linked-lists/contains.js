@@ -72,12 +72,79 @@ class SSL {
             return this
       }
 
+      max() {
+            var runner = this.head
+            var max_value = this.head.value
+            while(runner) {
+                  if(runner.value > max_value) {
+                        max_value = runner.value
+                  }
+                  runner = runner.next
+            }
+            return max_value
+      }
+
+      min() {
+            var runner = this.head
+            var min_value = this.head.value
+            while(runner) {
+                  if(runner.value < min_value) {
+                        min_value = runner.value
+                  }
+                  runner = runner.next
+            }
+            return min_value
+      }
+
+      average() {
+            var runner = this.head
+            var sum = 0
+            while(runner) {
+                  sum += runner.value
+                  runner = runner.next
+            }
+            return sum / this.length()
+      }
+
+      back() {
+            var runner = this.head
+            while(runner) {
+                  if (runner.next == null) {
+                        return runner.value
+                  }
+                  runner = runner.next
+            }
+            return this
+      }
+
+      addBack(value) {
+            var runner = this.head
+            while(runner) {
+                  if (runner.next == null) {
+                        runner.next = new Node(value)
+                        return this;
+                  }
+                  runner = runner.next
+            }
+            return this
+      }
+
+      removeBack() {
+            var runner = this.head
+            while(runner) {
+                  if (runner.next.next == null) {
+                        runner.next = null
+                        return this;
+                  }
+                  runner = runner.next
+            }
+            return this
+      }
 }
 
 var ssl = new SSL(2)
-ssl.addFront(5)
-ssl.addFront(6)
-ssl.addFront("Hi")
+ssl.addFront(15)
+ssl.addFront(-6)
 ssl.addFront(3)
 ssl.addFront(10)
 
@@ -88,6 +155,8 @@ ssl.addFront(10)
 // console.log(ssl.contains(10))
 // console.log(ssl.contains(5))
 
-console.log(ssl.length())
-
-ssl.display()
+ssl.addBack(20)
+ssl.addBack(25)
+console.log(ssl.back())
+ssl.removeBack()
+console.log(ssl.back())
