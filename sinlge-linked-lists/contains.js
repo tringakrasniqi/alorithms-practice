@@ -54,12 +54,13 @@ class SSL {
             var counter = 0
             while(runner) {
                   counter ++
-                  if (runner.next == null) {
-                        return counter
-                  }
                   runner = runner.next
             }
             return counter
+      }
+
+      display() {
+
       }
 
 }
